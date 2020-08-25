@@ -1,5 +1,5 @@
 
-# Boomer
+# Killer Queen
 discord bot heavily inspired by [Innocent-bot](https://github.com/Da532/Innocent-bot).
 
 
@@ -12,4 +12,7 @@ discord bot heavily inspired by [Innocent-bot](https://github.com/Da532/Innocent
 - `roles_del` Deletes all roles.
 - `kall` Kicks all members.
 - `ball` Bans all members.
-- `gamer` Deletes channels, bans members, deletes roles and deletes emoji.
+- `bitesthedust` Deletes channels, bans members, deletes roles and deletes emoji.
+
+
+Prefix ''killer queen''
